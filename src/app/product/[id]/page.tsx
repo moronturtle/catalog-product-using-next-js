@@ -61,7 +61,7 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
           <span className={styles.description}>{product?.description}</span>
         </div>
         <div className={styles["border-add-chart"]}>
-          <OrderCount />
+          <OrderCount price={convertToRupiah(product?.price)} />
         </div>
       </div>
     </div>

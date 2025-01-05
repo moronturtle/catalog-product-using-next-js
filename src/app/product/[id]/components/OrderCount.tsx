@@ -1,13 +1,16 @@
 import ProductQuantity from "@/components/ProductQuantity"
-import styles from "../../[id]/styles.module.scss"
 
-const OrderCount = () => {
+interface IOrderCountProps {
+    price: string
+}
+
+const OrderCount = ({price}: IOrderCountProps) => {
   return (
     <>
         <label className={`title mb-4}`}>Atur Jumlah Pesanan</label>
         <label className={`label-default mb-4}`}>Default , No Bubble</label>
         <hr className="custom-hr" />
-        <ProductQuantity />
+        <ProductQuantity price={price} />
         <button className="btn-primary mt-5">+ Add To Chart</button>
     </>
   )

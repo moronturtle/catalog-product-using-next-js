@@ -2,10 +2,14 @@
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
 
-const ProductQuantity = () => {
+interface IOrderCountProps {
+    price: string
+}
+
+const ProductQuantity = ({price}: IOrderCountProps) => {
   const [quantity, setQuantity] = useState(1);
-  const stock = 978;
-  const pricePerItem = 94000;
+  const stock = 10;
+  const pricePerItem = Number(price);
 
   const handleIncrement = () => {
     if (quantity < stock) setQuantity((prev) => prev + 1);
