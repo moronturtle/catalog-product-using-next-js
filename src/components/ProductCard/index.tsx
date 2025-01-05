@@ -1,21 +1,29 @@
+"use client";
 import Image from "next/image";
 import styles from "./styles.module.scss";
+import { useRouter } from "next/navigation";
 
 interface IProductProps {
+  id: string;
   image: string;
   title: string;
   rating: number;
   price: number;
 }
 
-const ProductCard = ({ image, title, rating, price }: IProductProps) => {
+const ProductCard = ({ id, image, title, rating, price }: IProductProps) => {
+  const router = useRouter();
   const convertToRupiah = (amount: number) => {
     const rupiah = amount * 15000;
     return rupiah.toLocaleString("id-ID");
   };
 
+  const handleClick = () => {
+    router.push(`/product/${id}`);
+  };
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleClick}>
       <Image
         src={image}
         alt={title}
