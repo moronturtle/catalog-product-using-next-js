@@ -3,11 +3,13 @@ import axios, { AxiosResponse } from "axios";
 interface CallOptions {
   method: "GET" | "POST" | "PUT" | "DELETE";
   url: string;
-  data?: Record<string, any>;
+  data?: Record<string, unknown>;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   queryParams?: Record<string, any>;
   overrideBaseUrl?: string;
   headers?: Record<string, string>;
   options?: Record<string, any>;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 }
 
 export async function call({
@@ -18,15 +20,17 @@ export async function call({
   overrideBaseUrl,
   headers,
   options,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: CallOptions): Promise<AxiosResponse<any>> {
   if (!url) {
     throw new Error("URL is required.");
   }
 
-  let newUrl = overrideBaseUrl || "";
+  const newUrl = overrideBaseUrl || "";
   const queryString = new URLSearchParams(
     Object.fromEntries(
       Object.entries(queryParams).filter(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ([_, data]) => data !== undefined && data !== null && data !== ""
       )
     )

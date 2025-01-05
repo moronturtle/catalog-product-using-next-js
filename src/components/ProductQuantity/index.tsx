@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./styles.module.scss";
 import { useGlobalContext } from "@/context/GlobalContext";
 
@@ -8,7 +8,7 @@ interface IOrderCountProps {
 }
 
 const ProductQuantity = ({ price }: IOrderCountProps) => {
-  const { quantityCumulative, setQuantityCumulative } = useGlobalContext();
+  const { setQuantityCumulative } = useGlobalContext();
   const [quantity, setQuantity] = useState(0);
   const stock = 10;
   const pricePerItem = Number(price);
@@ -21,9 +21,9 @@ const ProductQuantity = ({ price }: IOrderCountProps) => {
     if (quantity > 1) setQuantity((prev) => prev - 1);
   };
 
-  const onHandleAddToChart = useCallback(()=>{
+  const onHandleAddToChart = useCallback(() => {
     setQuantityCumulative((prevCumulative) => prevCumulative + quantity);
-  },[quantity])
+  }, [quantity, setQuantityCumulative]);
 
   return (
     <div className={styles.productQuantity}>
@@ -53,7 +53,9 @@ const ProductQuantity = ({ price }: IOrderCountProps) => {
           Rp{(quantity * pricePerItem).toLocaleString("id-ID")}
         </label>
       </div>
-      <button className="btn-primary mt-5" onClick={onHandleAddToChart}>+ Add To Chart</button>
+      <button className="btn-primary mt-5" onClick={onHandleAddToChart}>
+        + Add To Chart
+      </button>
     </div>
   );
 };

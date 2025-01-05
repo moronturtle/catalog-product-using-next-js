@@ -2,6 +2,7 @@ import { call } from "./BaseApi";
 
 const url = process.env.NEXT_PUBLIC_BASE_URL
 
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getListAllProduct = async (): Promise<any> => {
     try {
       const response = await call({
@@ -16,6 +17,7 @@ export const getListAllProduct = async (): Promise<any> => {
     }
   }
 
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   export const getProductById = async (id: string): Promise<any> => {
     try {
       const response = await call({
@@ -30,6 +32,7 @@ export const getListAllProduct = async (): Promise<any> => {
     }
   }
 
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   export const getProductByCategory = async (category: string): Promise<any> => {
     try {
       const response = await call({

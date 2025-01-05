@@ -43,7 +43,8 @@ const ProductCategoryPage = ({
         onClick={() => router.back()}
       />
       <label className={`label-default mb-4}`}>
-        Menampilkan <b>{product?.length | 0}</b> Produk dari '{textCategory}'
+        Menampilkan <b>{product?.length || 0}</b> Produk dari &apos;
+        {textCategory}&apos;
       </label>
       <div className={styles["card-container"]}>
         {product?.map((item: ProductInterface) => {

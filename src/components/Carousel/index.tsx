@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import styles from "@/components/Carousel/styles.module.scss";
 
 const Carousel = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  }, [images.length]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -18,15 +19,14 @@ const Carousel = ({ images }: { images: string[] }) => {
   };
 
   // Auto-slide function
-  const startAutoSlide = () => {
+  const startAutoSlide = useCallback(() => {
     intervalRef.current = setInterval(nextSlide, 3000);
-  };
-
+  }, [nextSlide]);
 
   useEffect(() => {
     startAutoSlide();
     return () => clearInterval(intervalRef.current as NodeJS.Timeout);
-  }, [images]);
+  }, [images, startAutoSlide]);
 
   const handleMouseEnter = () => {
     if (intervalRef.current) {
@@ -53,10 +53,12 @@ const Carousel = ({ images }: { images: string[] }) => {
         >
           {images.map((image, index) => (
             <div key={index} className={styles.carouselSlide}>
-              <img
+              <Image
                 src={`/assets/images/${image}`}
                 alt={`Slide ${index}`}
                 className={styles.carouselImage}
+                width={800}
+                height={300}
               />
             </div>
           ))}
