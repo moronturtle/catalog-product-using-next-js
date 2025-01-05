@@ -8,6 +8,10 @@
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
+  @include responsive('sm') {
+    padding: 0;
+  }
+
   &-container {
     display: flex;
     align-items: center;
@@ -17,6 +21,11 @@
   &-logo {
     display: flex;
     align-items: center;
+    
+    @include responsive('sm') {
+        width: 40px;
+        height: 40px;
+      }
 
     img {
       width: 64px;
@@ -25,8 +34,17 @@
   }
 }
 
+.hidden-in-sm {
+  @include responsive('sm') {
+    display: none;
+  }
+}
+
 .find-category{
      @include flex($direction: row, $justify: center, $align: center, $gap:40px);
+     @include responsive('sm') {
+        @include flex($direction: row, $justify: center, $align: center, $gap:-20px);
+      }
 
     &-searh-input{
       position: relative; 

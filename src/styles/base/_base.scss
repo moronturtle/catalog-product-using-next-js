@@ -1,5 +1,6 @@
 @use "../utils/_variables" as variables;
 @use "sass:color";
+@use '@/styles/utils/_mixins' as *;
 
 *,
 *::before,
@@ -60,5 +61,11 @@ input {
 
   &-lg {
     width: 450px;
+    @include responsive('sm') {
+      width: 250px;
+    }
+    @include responsive('md') {
+      width: 300px;
+    }
   }
 }
