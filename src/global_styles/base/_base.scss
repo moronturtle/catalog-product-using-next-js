@@ -1,6 +1,6 @@
 @use "../utils/_variables" as variables;
 @use "sass:color";
-@use '@/styles/utils/_mixins' as *;
+@use '@/global_styles/utils/_mixins' as *;
 
 *,
 *::before,
