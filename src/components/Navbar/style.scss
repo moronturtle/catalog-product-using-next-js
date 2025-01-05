@@ -1,4 +1,4 @@
-@use '@/global_styles/utils/_mixins' as *;
+@use "@/global_styles/utils/_mixins" as *;
 
 .header {
   display: flex;
@@ -8,7 +8,7 @@
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-  @include responsive('sm') {
+  @include responsive("sm") {
     padding: 0;
   }
 
@@ -21,11 +21,11 @@
   &-logo {
     display: flex;
     align-items: center;
-    
-    @include responsive('sm') {
-        width: 40px;
-        height: 40px;
-      }
+
+    @include responsive("sm") {
+      width: 40px;
+      height: 40px;
+    }
 
     img {
       width: 64px;
@@ -35,23 +35,57 @@
 }
 
 .hidden-in-sm {
-  @include responsive('sm') {
+  @include responsive("sm") {
     display: none;
   }
 }
 
-.find-category{
-     @include flex($direction: row, $justify: center, $align: center, $gap:40px);
-     @include responsive('sm') {
-        @include flex($direction: row, $justify: center, $align: center, $gap:-20px);
-      }
+.find-category {
+  @include flex($direction: row, $justify: center, $align: center, $gap: 40px);
+  @include responsive("sm") {
+    @include flex(
+      $direction: row,
+      $justify: center,
+      $align: center,
+      $gap: -20px
+    );
+  }
 
-    &-searh-input{
-      position: relative; 
-    }
-    &-searh-logo{
-        position: absolute;
-        top:3px;
-        right:2px;
-    }
+  &-searh-input {
+    position: relative;
+  }
+  &-searh-logo {
+    position: absolute;
+    top: 3px;
+    right: 2px;
+  }
+}
+
+.cart-pos {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  right: 150px;
+  top: 20px;
+}
+
+.badge {
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff4757;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container-cart {
+  position: relative;
 }
