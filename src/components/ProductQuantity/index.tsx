@@ -1,13 +1,15 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 interface IOrderCountProps {
-    price: number
+  price: number;
 }
 
-const ProductQuantity = ({price}: IOrderCountProps) => {
-  const [quantity, setQuantity] = useState(1);
+const ProductQuantity = ({ price }: IOrderCountProps) => {
+  const { quantityCumulative, setQuantityCumulative } = useGlobalContext();
+  const [quantity, setQuantity] = useState(0);
   const stock = 10;
   const pricePerItem = Number(price);
 
@@ -18,6 +20,10 @@ const ProductQuantity = ({price}: IOrderCountProps) => {
   const handleDecrement = () => {
     if (quantity > 1) setQuantity((prev) => prev - 1);
   };
+
+  const onHandleAddToChart = useCallback(()=>{
+    setQuantityCumulative((prevCumulative) => prevCumulative + quantity);
+  },[quantity])
 
   return (
     <div className={styles.productQuantity}>
@@ -43,8 +49,11 @@ const ProductQuantity = ({price}: IOrderCountProps) => {
       </div>
       <div className={styles.subtotal}>
         <label className="label-default">Subtotal</label>
-        <label className="title">Rp{(quantity * pricePerItem).toLocaleString("id-ID")}</label>
+        <label className="title">
+          Rp{(quantity * pricePerItem).toLocaleString("id-ID")}
+        </label>
       </div>
+      <button className="btn-primary mt-5" onClick={onHandleAddToChart}>+ Add To Chart</button>
     </div>
   );
 };

@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import "./style.scss";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const Navbar = () => {
+  const { quantityCumulative, setQuantityCumulative } = useGlobalContext();
   return (
     <header className="header">
       <div className="header-container">
@@ -38,15 +41,18 @@ const Navbar = () => {
             width={30}
             height={30}
           />
-          <div className="badge">5</div>
+          {quantityCumulative !== 0 && <div className="badge">{quantityCumulative}</div>}
         </div>
-        <Image
-          className="pointer"
-          src="/assets/icon/delete.svg"
-          alt="Logo"
-          width={30}
-          height={30}
-        />
+        {quantityCumulative !== 0 && (
+          <Image
+            className="pointer"
+            src="/assets/icon/delete.svg"
+            alt="Logo"
+            width={30}
+            height={30}
+            onClick={() => setQuantityCumulative(0)}
+          />
+        )}
       </div>
     </header>
   );

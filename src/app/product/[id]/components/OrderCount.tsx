@@ -11,7 +11,6 @@ const OrderCount = ({price}: IOrderCountProps) => {
         <label className={`label-default mb-4}`}>Default , No Bubble</label>
         <hr className="custom-hr" />
         <ProductQuantity price={price} />
-        <button className="btn-primary mt-5">+ Add To Chart</button>
     </>
   )
 }
