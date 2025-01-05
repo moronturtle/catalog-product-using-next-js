@@ -1,5 +1,5 @@
-@use '../utils/_variables' as variables;
-@use 'sass:color';
+@use "../utils/_variables" as variables;
+@use "sass:color";
 
 *,
 *::before,
@@ -31,4 +31,33 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+input {
+  font-family: variables.$body-font;
+  font-size: variables.$font-size-base;
+  padding-left: 10px;
+  color: variables.$body-color;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  height: 38px;
+  width: 100px;
+  &::placeholder {
+    color: grey;
+    padding-left: 10px;
+  }
+}
+
+.input-size {
+  &-sm {
+    width: 150px;
+  }
+
+  &-md {
+    width: 250px;
+  }
+
+  &-lg {
+    width: 450px;
+  }
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Sidebar from "@/components/SideBar";
 import Navbar from "@/components/Navbar";
 import "@/styles/_main.scss";
 
@@ -17,9 +16,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-          <Sidebar />
+          <Navbar />
           <div style={{ width: '100%' }}>
-            <Navbar />
             {children}
           </div>
       </body>

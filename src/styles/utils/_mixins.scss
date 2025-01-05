@@ -24,8 +24,3 @@
       }
     }
   }
-  
-  // Box Shadow
-  @mixin box-shadow($x: 0px, $y: 4px, $blur: 8px, $color: rgba(0, 0, 0, 0.2)) {
-    box-shadow: $x $y $blur $color;
-  }

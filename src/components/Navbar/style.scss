@@ -1,0 +1,39 @@
+@use '@/styles/utils/_mixins' as *;
+
+.header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+}
+
+.find-category{
+     @include flex($direction: row, $justify: center, $align: center, $gap:40px);
+
+    &-searh-input{
+      position: relative; 
+    }
+    &-searh-logo{
+        position: absolute;
+        top:3px;
+        right:2px;
+    }
+}

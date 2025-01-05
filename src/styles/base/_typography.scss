@@ -27,3 +27,16 @@ h3 {
 p {
   margin-bottom: variables.$spacing-unit * 2;
 }
+
+.label {
+  font-weight: bold;
+  font-size: 14px;
+  color: variables.$heading-color;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: variables.$heading-color;
+  margin-bottom: variables.$spacing-unit;
+}
