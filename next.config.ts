@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  images: {
+    domains: ['via.placeholder.com'],
+  },
   compiler: {
     styledComponents: true,
   },
