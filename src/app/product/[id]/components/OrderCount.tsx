@@ -1,7 +1,7 @@
 import ProductQuantity from "@/components/ProductQuantity"
 
 interface IOrderCountProps {
-    price: string
+    price: number
 }
 
 const OrderCount = ({price}: IOrderCountProps) => {

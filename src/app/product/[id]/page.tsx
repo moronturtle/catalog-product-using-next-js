@@ -7,7 +7,7 @@ import { getProductById } from "@/api/product";
 import { use } from "react";
 import Loader from "@/components/Loader";
 import { ProductInterface } from "@/type/products";
-import { convertToRupiah } from "@/utils/convert";
+import { CalculateToRupiah, convertToRupiah } from "@/utils/convert";
 import OrderCount from "./components/OrderCount";
 
 const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
@@ -61,7 +61,7 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
           <span className={styles.description}>{product?.description}</span>
         </div>
         <div className={styles["border-add-chart"]}>
-          <OrderCount price={convertToRupiah(product?.price)} />
+          <OrderCount price={CalculateToRupiah(product?.price)} />
         </div>
       </div>
     </div>
