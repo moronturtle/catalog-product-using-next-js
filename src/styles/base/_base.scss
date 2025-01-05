@@ -42,6 +42,7 @@ input {
   border: 2px solid #ccc;
   height: 38px;
   width: 100px;
+  box-shadow: 0 2px 8px #ccc;
   &::placeholder {
     color: grey;
     padding-left: 10px;
