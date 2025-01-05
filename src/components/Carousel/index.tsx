@@ -39,7 +39,7 @@ const Carousel = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       <div
         className={styles.carousel}
         onMouseEnter={handleMouseEnter}
@@ -69,7 +69,7 @@ const Carousel = ({ images }: { images: string[] }) => {
           &#9654;
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

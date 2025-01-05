@@ -1,19 +1,21 @@
+import Carousel from "@/components/Carousel";
+import { imagesDummy } from "@/utils/constants";
 import { Metadata } from "next";
+import CardCategory from "./components/CardCategory";
+import styles from './styles.module.scss';
 
 export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "This is the Dashboard page.",
+  title: "Home",
+  description: "This is the Home page.",
 };
 
-const DashboardPage = () => {
+const HomePage = () => {
   return (
-    <div>
-      <main style={{ marginLeft: "250px", padding: "20px" }}>
-        <h1>Welcome to the Dashboard</h1>
-        <p>This is the dashboard content.</p>
-      </main>
+    <div className={styles.container}>
+       <Carousel images={imagesDummy} />
+       <CardCategory />
     </div>
   );
 };
 
-export default DashboardPage;
+export default HomePage;

@@ -15,7 +15,6 @@ const Navbar = () => {
       </div>
     </div>
     <div className="find-category">
-      <label className="label hidden-in-sm">Kategori</label>
       <div className="find-category-searh-input">
         <input className="input-size-lg" type="text" placeholder="Cari Kategori" />
         <Image

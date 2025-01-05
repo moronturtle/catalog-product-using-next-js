@@ -32,7 +32,7 @@ export async function call({
     )
   ).toString();
 
-  const fullUrl = `${url}?${queryString}`;
+  const fullUrl = `${url} ${queryString ? `?${queryString}` : ""}`;
 
   try {
     const response = await axios({
@@ -43,7 +43,8 @@ export async function call({
       headers,
       ...options,
     });
-    return response;
+    
+    return response?.data;
   } catch (error) {
     console.error("Error making API call:", error);
     throw error;
