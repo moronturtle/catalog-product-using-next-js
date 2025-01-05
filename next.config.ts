@@ -11,7 +11,15 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: ['via.placeholder.com'],
+    domains: ['fakestoreapi.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'fakestoreapi.com',
+        pathname: '/img/**',
+      },
+    ],
+    unoptimized: true,
   },
   compiler: {
     styledComponents: true,

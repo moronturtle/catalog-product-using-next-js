@@ -19,7 +19,7 @@ const Carousel = ({ images }: { images: string[] }) => {
 
   // Auto-slide function
   const startAutoSlide = () => {
-    intervalRef.current = setInterval(nextSlide, 4000);
+    intervalRef.current = setInterval(nextSlide, 3000);
   };
 
 

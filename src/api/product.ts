@@ -2,11 +2,11 @@ import { call } from "./BaseApi";
 
 const url = process.env.NEXT_PUBLIC_BASE_URL
 
-export const getListCategories = async (): Promise<any> => {
+export const getListAllProduct = async (): Promise<any> => {
     try {
       const response = await call({
         method: 'GET',
-        url: `${url}/products/categories`,
+        url: `${url}/products`,
       })
   
       return response ;

@@ -1,4 +1,75 @@
+@use "@/global_styles/utils/_mixins" as *;
+
 .container {
-    margin: 0 9%;
-    margin-top: 10px;
+  margin: 0 9%;
+  margin-top: 10px;
+}
+
+.cardContainer {
+  margin-bottom: 10px;
+  display: grid;
+  gap: 1rem;
+  padding: 5px 0;
+  padding-top: 10px;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  @include responsive("lg") {
+    grid-template-columns: repeat(3, 1fr);
   }
+
+  @include responsive("md") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive("sm") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.card:hover {
+  background-color: #f0f0f0;
+  border-color: #aaa;
+}
+
+.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.cardContainerProduct {
+  margin-bottom: 10px;
+  display: grid;
+  gap: 1rem;
+  padding: 5px 0;
+  padding-top: 10px;
+
+  grid-template-columns: repeat(6, 1fr);
+
+  @include responsive("lg") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include responsive("md") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive("sm") {
+    grid-template-columns: 1fr;
+  }
+}
