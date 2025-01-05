@@ -1,19 +1,24 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import "./style.scss";
 import { useGlobalContext } from "@/context/GlobalContext";
 
 const Navbar = () => {
   const { quantityCumulative, setQuantityCumulative } = useGlobalContext();
+  const router = useRouter();
+
   return (
     <header className="header">
       <div className="header-container">
         <div className="header-logo">
           <Image
             src="/assets/logo/header-logo.svg"
+            className="pointer"
             alt="Logo"
             width={64}
             height={64}
+            onClick={() => router.push("/home")}
           />
         </div>
       </div>
@@ -41,7 +46,9 @@ const Navbar = () => {
             width={30}
             height={30}
           />
-          {quantityCumulative !== 0 && <div className="badge">{quantityCumulative}</div>}
+          {quantityCumulative !== 0 && (
+            <div className="badge">{quantityCumulative}</div>
+          )}
         </div>
         {quantityCumulative !== 0 && (
           <Image
