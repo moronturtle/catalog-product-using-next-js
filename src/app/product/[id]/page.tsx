@@ -1,14 +1,16 @@
-'use client';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import styles from '../styles.module.scss';
-import { getProductById } from '@/api/product';
-import { use } from 'react';
-import Loader from '@/components/Loader';
+"use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import styles from "./styles.module.scss";
+import { getProductById } from "@/api/product";
+import { use } from "react";
+import Loader from "@/components/Loader";
+import { ProductInterface } from "@/type/products";
+import { convertToRupiah } from "@/utils/convert";
 
 const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<ProductInterface | null>(null);
   const { id } = use(params);
   const router = useRouter();
 
@@ -25,26 +27,42 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <div className={styles.container}>
-      <div onClick={() => router.back()}>
       <Image
-          className="pointer"
-          src="/assets/icon/back.svg"
-          alt="Logo"
-          width={34}
-          height={34}
-        />
-      </div>
-     
-      <h1>{product.title}</h1>
-      <Image
-        src={product.image}
-        alt={product.title}
-        width={300}
-        height={300}
+        className="pointer mb-4"
+        src="/assets/icon/back.svg"
+        alt="Logo"
+        width={34}
+        height={34}
+        onClick={() => router.back()}
       />
-      <p>{product.description}</p>
-      <div>Price: Rp{product.price.toLocaleString()}</div>
-      <div>Rating: {product.rating.rate} / 5</div>
+      <div className={styles["detail-product-container"]}>
+        <div>
+          <Image
+            src={product?.image}
+            alt={product?.title}
+            width={300}
+            height={300}
+          />
+        </div>
+        <div>
+          <label className="title mb-4">{product?.title}</label>
+          <div>Price: Rp{convertToRupiah(product?.price)}</div>
+          <div className={styles["card-rating"]}>
+            {[...Array(5)].map((_, i) => (
+              <span key={i} className={styles.star}>
+                {i < product?.rating?.rate ? "★" : "☆"}
+              </span>
+            ))}
+            <span className={styles["rating-value"]}>
+              ({product?.rating?.rate}/5)
+            </span>
+          </div>
+          <span className={styles.description}>{product?.description}</span>
+        </div>
+        <div className={styles["border-add-chart"]}>
+          <label className="title mb-4">Atur Jumlah Pesanan</label>
+        </div>
+      </div>
     </div>
   );
 };

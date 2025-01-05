@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
+import { convertToRupiah } from "@/utils/convert";
 
 interface IProductProps {
   id: string;
@@ -13,11 +14,6 @@ interface IProductProps {
 
 const ProductCard = ({ id, image, title, rating, price }: IProductProps) => {
   const router = useRouter();
-  const convertToRupiah = (amount: number) => {
-    const rupiah = amount * 15000;
-    return rupiah.toLocaleString("id-ID");
-  };
-
   const handleClick = () => {
     router.push(`/product/${id}`);
   };
@@ -34,7 +30,7 @@ const ProductCard = ({ id, image, title, rating, price }: IProductProps) => {
       />
       <div className={styles["card-title"]}>{title}</div>
       <div className={styles["card-price"]}>
-        <span>Rp. {convertToRupiah(price)}</span>
+        <span>Rp{convertToRupiah(price)}</span>
       </div>
       <div className={styles["card-rating"]}>
         {[...Array(5)].map((_, i) => (
