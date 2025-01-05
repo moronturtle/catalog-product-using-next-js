@@ -1,0 +1,34 @@
+@use '../utils/_variables' as variables;
+@use 'sass:color';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: variables.$body-font;
+  font-size: variables.$font-size-base;
+  color: variables.$body-color;
+  line-height: variables.$line-height-body;
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: variables.$primary-color;
+  text-decoration: none !important;
+  &:hover {
+    text-decoration: none !important;
+    color: color.adjust(variables.$primary-color, $lightness: -10%);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

@@ -1,0 +1,19 @@
+@use '../utils/_mixins' as *;
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  
+    @include responsive('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    @include responsive('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @include responsive('sm') {
+      grid-template-columns: 1fr;
+    }
+  }
