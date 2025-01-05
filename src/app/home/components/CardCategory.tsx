@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styles from "../styles.module.scss";
 import { CategoryImage } from "@/utils/constants";
 
@@ -8,8 +9,9 @@ interface ICategoryProps {
 }
 
 const CardCategory = ({ categories }: ICategoryProps) => {
+  const router = useRouter();
   const handleCardClick = (category: string) => {
-    console.log(category);
+    router.push(`/product-category/${category}`);
   };
 
   return (

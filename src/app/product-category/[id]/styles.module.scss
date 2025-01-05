@@ -1,0 +1,29 @@
+@use "@/global_styles/utils/_mixins" as *;
+
+.container {
+    margin: 0 9%;
+    margin-top: 10px;
+  }
+
+  
+  .card-container {
+    margin-bottom: 10px;
+    display: grid;
+    gap: 1rem;
+    padding: 5px 0;
+    padding-top: 10px;
+  
+    grid-template-columns: repeat(4, 1fr);
+  
+    @include responsive("lg") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    @include responsive("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @include responsive("sm") {
+      grid-template-columns: 1fr;
+    }
+  }

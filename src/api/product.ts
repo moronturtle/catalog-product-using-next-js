@@ -29,3 +29,17 @@ export const getListAllProduct = async (): Promise<any> => {
       console.error('Error making API call', error)
     }
   }
+
+  export const getProductByCategory = async (category: string): Promise<any> => {
+    try {
+      const response = await call({
+        method: 'GET',
+        url: `${url}/products/category/${category}`,
+      })
+  
+      return response ;
+
+    } catch (error) {
+      console.error('Error making API call', error)
+    }
+  }
