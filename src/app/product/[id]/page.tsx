@@ -8,6 +8,7 @@ import { use } from "react";
 import Loader from "@/components/Loader";
 import { ProductInterface } from "@/type/products";
 import { convertToRupiah } from "@/utils/convert";
+import OrderCount from "./components/OrderCount";
 
 const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
   const [product, setProduct] = useState<ProductInterface | null>(null);
@@ -60,7 +61,7 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
           <span className={styles.description}>{product?.description}</span>
         </div>
         <div className={styles["border-add-chart"]}>
-          <label className="title mb-4">Atur Jumlah Pesanan</label>
+          <OrderCount />
         </div>
       </div>
     </div>

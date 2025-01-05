@@ -34,6 +34,18 @@ p {
   color: variables.$heading-color;
 }
 
+.label-sm {
+  font-weight: 600;
+  font-size: 12px;
+  color: variables.$heading-color;
+}
+
+.label-default {
+  font-weight: 400;
+  font-size: 14px;
+  color: variables.$heading-color;
+}
+
 .title {
   font-weight: 600;
   font-size: 1.25rem;
